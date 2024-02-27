@@ -96,6 +96,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ec6b75d454e7f8f4781f3ce98fea3e7f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4757565244305241673}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ec6b75d454e7f8f4781f3ce98fea3e7f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7296208586310927950}
   m_SourcePrefab: {fileID: 100100000, guid: ec6b75d454e7f8f4781f3ce98fea3e7f, type: 3}
 --- !u!1 &431560166627967334 stripped
 GameObject:
@@ -164,7 +167,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3999678221342150853, guid: ec6b75d454e7f8f4781f3ce98fea3e7f, type: 3}
 --- !u!114 &4757565244305241673
@@ -180,8 +183,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: {fileID: 1440075821197454541, guid: 09075094a513beb4f8fb392d6b0c6282, type: 3}
-  speed: 100
   fruit: {fileID: 431560166627967334}
   Target: {fileID: 0}
   rate_of_fire: 10
   range_to_fire: 4
+--- !u!64 &7296208586310927950
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431560166627967334}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3999678221342150853, guid: ec6b75d454e7f8f4781f3ce98fea3e7f, type: 3}

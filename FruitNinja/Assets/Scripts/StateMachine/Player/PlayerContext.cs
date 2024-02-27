@@ -4,35 +4,59 @@ using UnityEngine;
 /* Description: Holds variables that all the states may need access to and the get methods*/
 public class PlayerContext
 {
-    [SerializeField] private XROrigin _xrOrigin;
+    [SerializeField] private OVRPlayerController _ovrPlayerController;    
+    [SerializeField] private GameLevelStateMachine _gameLevelStateMachine;
+
     private float Health;
-    private float StandingHeight;
-    private float CrouchingHeight;
-    public PlayerContext(XROrigin xrOrigin)
+    private float Radius;
+    public PlayerContext(OVRPlayerController ovrPlayerController, GameLevelStateMachine gameLevelStateMachine)
     {
-        _xrOrigin = xrOrigin;
-        StandingHeight = 1.36144f;
-        CrouchingHeight = StandingHeight * 0.6f;
+        _ovrPlayerController = ovrPlayerController;
+        _gameLevelStateMachine = gameLevelStateMachine;
         Health = 100f;
+        Radius = .2f;
     }
 
-    public XROrigin GetXROrigin()
+    public OVRPlayerController GetOVRPlayerController()
     {
-        return _xrOrigin;
+        return _ovrPlayerController;
     }
-
-    public float GetStandingHeight()
-    {
-        return StandingHeight;
-    }
-
-    public float GetCrouchingHeight()
-    {
-        return CrouchingHeight;
-    }
+    
     public float GetHealth()
     {
         return Health;
     }
-    
+
+    public GameLevelStateMachine getGameLevelStateMachine()
+    {
+        return _gameLevelStateMachine;
+    }
+    public void SetHealth(float newValue)
+    {
+        Health = newValue;
+    }
+    public Vector3 GetRandomPosition()
+    {
+        Vector3 randomPosition = Vector3.zero;
+        bool positionFound = false;
+        int attempts = 0;
+
+        while (!positionFound && attempts < 100)
+        {
+            Vector3 candidatePosition = _ovrPlayerController.gameObject.transform.position + Random.insideUnitSphere * Radius;
+            Debug.Log("cd" + candidatePosition);
+            // candidatePosition.y = 0f; // Ensure objects are instantiated at ground level or desired height
+
+            /*if (!Physics.CheckSphere(candidatePosition, .01f))
+            {
+                randomPosition = candidatePosition;
+                positionFound = true;
+            }*/
+            positionFound = true;
+            randomPosition = candidatePosition;
+            attempts++;
+        }
+
+        return randomPosition;
+    }
 }

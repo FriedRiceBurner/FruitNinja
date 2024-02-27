@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class PlayerDefaultState : PlayerStateController
+public class PlayerDefeatedState : PlayerStateController
 {
-    public PlayerDefaultState(PlayerContext context, PlayerStateMachine.PlayerState stateKey) : base(context, stateKey)
+    public PlayerDefeatedState(PlayerContext context, PlayerStateMachine.PlayerState stateKey) : base(context, stateKey)
     {
         PlayerContext Context = context;
     }
 
     public override void EnterState()
     {
+        Debug.Log("Enter Defeated player state");
+        PauseMenu.QuitGame();
     }
 
     public override void ExitState()
@@ -17,7 +19,6 @@ public class PlayerDefaultState : PlayerStateController
 
     public override void UpdateState()
     {
-        Debug.Log(Context.GetHealth());
     }
 
     public override PlayerStateMachine.PlayerState GetNextState()
@@ -27,15 +28,7 @@ public class PlayerDefaultState : PlayerStateController
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Fruits")) return;
-        
-        //yield return new WaitForSeconds(2);
-        Object.Destroy(other.gameObject);
-        Context.SetHealth(Context.GetHealth() - 1);
-        if (Context.GetHealth() == 0)
-        {
-            NextState = PlayerStateMachine.PlayerState.PlayerDefeated;
-        }
+        throw new System.NotImplementedException();
     }
 
     public override void OnTriggerStay(Collider other)

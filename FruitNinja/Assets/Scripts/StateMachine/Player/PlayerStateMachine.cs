@@ -7,16 +7,18 @@ public class PlayerStateMachine : StateManager<PlayerStateMachine.PlayerState>
 {
     public enum PlayerState
     {
-        Default
+        Default,
+        PlayerDefeated
     }
 
     private PlayerContext _context;
-    [SerializeField] private XROrigin _xrOrigin;
-    
+    [SerializeField] private OVRPlayerController _ovrPlayerController;
+    [SerializeField] private GameLevelStateMachine gameLevelStateMachine;
+
     void Awake()
     {
         ValidateConstraints();
-        _context = new PlayerContext(_xrOrigin);
+        _context = new PlayerContext(_ovrPlayerController, gameLevelStateMachine);
         InitializeStates();
     }
 
@@ -26,12 +28,13 @@ public class PlayerStateMachine : StateManager<PlayerStateMachine.PlayerState>
     }
     private void ValidateConstraints()
     {
-        Assert.IsNotNull(_xrOrigin, "XR Origin is not assigned");
+        Assert.IsNotNull(_ovrPlayerController, "XR Origin is not assigned");
     }
     
     private void InitializeStates()
     {
         States.Add(PlayerState.Default, new PlayerDefaultState(_context, PlayerState.Default));
+        States.Add(PlayerState.PlayerDefeated, new PlayerDefeatedState(_context, PlayerState.PlayerDefeated));
         CurrentState = States[PlayerState.Default];
     }
 }

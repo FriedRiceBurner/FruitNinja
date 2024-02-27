@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fruits
+  - Level1Start
+  - Level1End
+  - Level2Start
+  - Level3Start
   layers:
   - Default
   - TransparentFX
