@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void DisplayPauseMenu()
     {
+        Time.timeScale = Time.timeScale == 0 ? 1 : 0; 
         pauseMenuCanvas.SetActive(!isActive);
         isActive = !isActive;
     }
@@ -38,11 +39,11 @@ public class PauseMenu : MonoBehaviour
     {
         DisplayPauseMenu(); // toggle pause button
     }
-    public void RestartGame()
+    public static void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void QuitGame()
+    public static void QuitGame()
     {
         //If we are running in a standalone build of the game
         #if UNITY_STANDALONE
