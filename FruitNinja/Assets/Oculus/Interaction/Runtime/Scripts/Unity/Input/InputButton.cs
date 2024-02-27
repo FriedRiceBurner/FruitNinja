@@ -19,6 +19,7 @@
  */
 
 using Oculus.Interaction.Input;
+using System.Threading;
 using UnityEngine;
 
 namespace Oculus.Interaction.Unity.Input
@@ -31,6 +32,7 @@ namespace Oculus.Interaction.Unity.Input
         public bool Value()
         {
             return UnityEngine.Input.GetButton(_buttonName);
+            Debug.Log("pressed!");
         }
     }
 }
