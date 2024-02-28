@@ -120,7 +120,7 @@ MonoBehaviour:
   fruit: {fileID: 213010165404063253}
   rotationSpeed: 3
   speed: 1
-  Target: {fileID: 0}
+  Target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
 --- !u!54 &213010165404063253
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: {fileID: 1440075821197454541, guid: 09075094a513beb4f8fb392d6b0c6282, type: 3}
   fruit: {fileID: 431560166627967334}
-  Target: {fileID: 0}
+  Target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
   rate_of_fire: 10
   range_to_fire: 4
 --- !u!64 &7296208586310927950
