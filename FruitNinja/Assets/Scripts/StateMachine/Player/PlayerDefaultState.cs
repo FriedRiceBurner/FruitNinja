@@ -17,7 +17,7 @@ public class PlayerDefaultState : PlayerStateController
 
     public override void UpdateState()
     {
-        Debug.Log(Context.GetHealth());
+        HandlePlayerTeleport();
     }
 
     public override PlayerStateMachine.PlayerState GetNextState()
@@ -27,14 +27,23 @@ public class PlayerDefaultState : PlayerStateController
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Fruits")) return;
-        
-        //yield return new WaitForSeconds(2);
-        Object.Destroy(other.gameObject);
-        Context.SetHealth(Context.GetHealth() - 1);
-        if (Context.GetHealth() == 0)
+        if (other.gameObject.CompareTag("Fruits"))
         {
-            NextState = PlayerStateMachine.PlayerState.PlayerDefeated;
+            //yield return new WaitForSeconds(2);
+            Object.Destroy(other.gameObject);
+            Context.SetHealth(Context.GetHealth() - 1);
+            if (Context.GetHealth() == 0)
+            {
+                NextState = PlayerStateMachine.PlayerState.PlayerDefeated;
+            }
+        }
+        else if (other.gameObject.CompareTag("Food"))
+        {
+            Context.SetHealth(Context.GetHealth() + 1);
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -46,5 +55,19 @@ public class PlayerDefaultState : PlayerStateController
     public override void OnTriggerExit(Collider other)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void HandlePlayerTeleport()
+    {
+        if (OVRInput.GetDown(OVRInput.Button.One))
+        {
+            Context.GetPlayerTeleporter().ToggleDisplay(true);
+        }
+
+        if(OVRInput.GetUp(OVRInput.Button.One))
+        {
+            Context.GetPlayerTeleporter().Teleport();
+            Context.GetPlayerTeleporter().ToggleDisplay(false);
+        }
     }
 }

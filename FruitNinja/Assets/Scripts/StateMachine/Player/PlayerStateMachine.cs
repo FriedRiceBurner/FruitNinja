@@ -1,6 +1,7 @@
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 /* Initializes Player State classes and is placed in a game object */
 public class PlayerStateMachine : StateManager<PlayerStateMachine.PlayerState>
@@ -13,12 +14,14 @@ public class PlayerStateMachine : StateManager<PlayerStateMachine.PlayerState>
 
     private PlayerContext _context;
     [SerializeField] private OVRPlayerController _ovrPlayerController;
-    [SerializeField] private GameLevelStateMachine gameLevelStateMachine;
+    [SerializeField] private GameLevelStateMachine _gameLevelStateMachine;
+    [SerializeField] private VRTeleporter _playerTeleporter;
+
 
     void Awake()
     {
         ValidateConstraints();
-        _context = new PlayerContext(_ovrPlayerController, gameLevelStateMachine);
+        _context = new PlayerContext(_ovrPlayerController, _gameLevelStateMachine, _playerTeleporter);
         InitializeStates();
     }
 
