@@ -6,13 +6,16 @@ public class PlayerContext
 {
     [SerializeField] private OVRPlayerController _ovrPlayerController;    
     [SerializeField] private GameLevelStateMachine _gameLevelStateMachine;
+    [SerializeField] private VRTeleporter _playerTeleporter;
+
 
     private float Health;
     private float Radius;
-    public PlayerContext(OVRPlayerController ovrPlayerController, GameLevelStateMachine gameLevelStateMachine)
+    public PlayerContext(OVRPlayerController ovrPlayerController, GameLevelStateMachine gameLevelStateMachine, VRTeleporter playerTeleporter)
     {
         _ovrPlayerController = ovrPlayerController;
         _gameLevelStateMachine = gameLevelStateMachine;
+        _playerTeleporter = playerTeleporter;
         Health = 100f;
         Radius = .2f;
     }
@@ -21,7 +24,12 @@ public class PlayerContext
     {
         return _ovrPlayerController;
     }
-    
+
+    public VRTeleporter GetPlayerTeleporter()
+    {
+        return _playerTeleporter;
+    }
+
     public float GetHealth()
     {
         return Health;
