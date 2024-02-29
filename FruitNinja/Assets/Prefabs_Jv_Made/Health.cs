@@ -32,7 +32,15 @@ public class Health : MonoBehaviour
             }
         }
 
-    
+        if (col.gameObject.tag == "Health_pickup")
+        {
+            Debug.Log("heal");
+            //yield return new WaitForSeconds(2);
+            Destroy(col.gameObject);
+            health += 1;
+           
+        }
+
     }
 
 }
