@@ -19,12 +19,12 @@ public class Time_to_live : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get the direction to the target
-        Vector3 direction = Target.transform.position - gameObject.transform.position;
-        // Create a rotation to look at the target
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        // Slerp to interpolate smoothly towards the target rotation
-        gameObject.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        //// Get the direction to the target
+        //Vector3 direction = Target.transform.position - gameObject.transform.position;
+        //// Create a rotation to look at the target
+        //Quaternion targetRotation = Quaternion.LookRotation(direction);
+        //// Slerp to interpolate smoothly towards the target rotation
+        //gameObject.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         rb.AddForce(transform.forward * speed);
     }
 }

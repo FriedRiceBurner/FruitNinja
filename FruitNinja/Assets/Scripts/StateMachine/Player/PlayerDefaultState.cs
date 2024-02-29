@@ -31,7 +31,8 @@ public class PlayerDefaultState : PlayerStateController
         {
             //yield return new WaitForSeconds(2);
             Object.Destroy(other.gameObject);
-            Context.SetHealth(Context.GetHealth() - 1);
+            Context.SetHealth(Context.GetHealth() - 5);
+
             if (Context.GetHealth() == 0)
             {
                 NextState = PlayerStateMachine.PlayerState.PlayerDefeated;
@@ -39,7 +40,8 @@ public class PlayerDefaultState : PlayerStateController
         }
         else if (other.gameObject.CompareTag("Food"))
         {
-            Context.SetHealth(Context.GetHealth() + 1);
+            Object.Destroy(other.gameObject);
+            Context.SetHealth(Context.GetHealth() + 5);
         }
         else
         {
