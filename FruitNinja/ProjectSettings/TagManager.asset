@@ -9,6 +9,7 @@ TagManager:
   - Level1End
   - Level2Start
   - Level3Start
+  - Food
   layers:
   - Default
   - TransparentFX
