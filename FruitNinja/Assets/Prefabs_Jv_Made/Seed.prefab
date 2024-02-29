@@ -107,7 +107,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -241,7 +241,7 @@ MonoBehaviour:
   TimetoLive: 1
   rotationSpeed: 10
   speed: 5
-  Target: {fileID: 6428928527359006331, guid: 3990865e15649ee498783c53385bc505, type: 3}
+  Target: {fileID: 3774548753252421422, guid: 1db5f7498362e084898cab58142069b5, type: 3}
   rb: {fileID: 1440075821197454541}
 --- !u!54 &1440075821197454541
 Rigidbody:
