@@ -7,6 +7,7 @@ public class VoiceCommands : MonoBehaviour
 {
     private KeywordRecognizer _keywordRecognizer;
     public Material moldyMaterial;
+    public GameObject player;
     private void Start()
     {
         _keywordRecognizer = new KeywordRecognizer(new string[] { "fruit gods" });
