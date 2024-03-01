@@ -42139,6 +42139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStateMachine: {fileID: 1458206330}
+  player: {fileID: 994461844}
   firstLevelEnemies: {fileID: 596595510}
   secondLevelEnemies: {fileID: 824518479}
   thirdLevelEnemies: {fileID: 1222065554}
@@ -62390,6 +62391,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: {fileID: 972082173}
   playerStateMachine: {fileID: 1458206330}
+--- !u!114 &1458206340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994461844}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960dc42607485ac4fa690b6ee3e21b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 10
+  gravity: 9.8
+  characterController: {fileID: 0}
+  jumpButton: 8
+  moveDirection: {x: 0, y: 0, z: 0}
+  isJumping: 0
+--- !u!114 &1458206341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994461844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8722ab6f48f4554f9203779b64a95bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 6
+  flySpeed: 3
+  gravityModifier: 1
 --- !u!1001 &1459450532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90210,6 +90244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moldyMaterial: {fileID: 2100000, guid: 5f351b646137f8046aeb2341c759a05b, type: 2}
+  player: {fileID: 994461844}
 --- !u!4 &2113360537
 Transform:
   m_ObjectHideFlags: 0
@@ -94347,6 +94382,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3774548753252421422, guid: 1db5f7498362e084898cab58142069b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1458206334}
+    - targetCorrespondingSourceObject: {fileID: 3774548753252421422, guid: 1db5f7498362e084898cab58142069b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1458206340}
+    - targetCorrespondingSourceObject: {fileID: 3774548753252421422, guid: 1db5f7498362e084898cab58142069b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1458206341}
     - targetCorrespondingSourceObject: {fileID: 231637282880960765, guid: 1db5f7498362e084898cab58142069b5, type: 3}
       insertIndex: 5
       addedObject: {fileID: 1721033731}

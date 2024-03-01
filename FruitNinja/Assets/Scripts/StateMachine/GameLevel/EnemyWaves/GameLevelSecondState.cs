@@ -17,7 +17,6 @@ public class GameLevelSecondState : GameLevelStateController
     public override void ExitState()
     {
         Object.Destroy(Context.GetSecondLevelEnemies());
-
         Debug.Log("Exit Second GameLevel state");
         // throw new System.NotImplementedException();
     }

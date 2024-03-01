@@ -18,6 +18,8 @@ public class GameLevelStateMachine : StateManager<GameLevelStateMachine.GameLeve
     [SerializeField]
     private PlayerStateMachine playerStateMachine;
     [SerializeField]
+    private GameObject player;
+    [SerializeField]
     private GameObject firstLevelEnemies;
     [SerializeField]
     private GameObject secondLevelEnemies;
@@ -26,7 +28,7 @@ public class GameLevelStateMachine : StateManager<GameLevelStateMachine.GameLeve
     void Awake()
     {
         ValidateConstraints();
-        _context = new GameLevelContext( playerStateMachine, firstLevelEnemies, secondLevelEnemies, thirdLevelEnemies);
+        _context = new GameLevelContext(player, playerStateMachine, firstLevelEnemies, secondLevelEnemies, thirdLevelEnemies);
         InitializeStates();
     }
 
@@ -36,6 +38,7 @@ public class GameLevelStateMachine : StateManager<GameLevelStateMachine.GameLeve
     }
     private void ValidateConstraints()
     {
+        Assert.IsNotNull(player, "Player is not assigned");
         Assert.IsNotNull(playerStateMachine, "Player state machine is not assigned");
         Assert.IsNotNull(firstLevelEnemies, "First level enemies is not assigned");
         Assert.IsNotNull(secondLevelEnemies, "Second level enemies is not assigned");
