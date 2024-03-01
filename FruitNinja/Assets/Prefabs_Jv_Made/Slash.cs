@@ -5,6 +5,7 @@ using UnityEngine;
 public class Slash : MonoBehaviour
 {
     public GameObject Particles;
+    public AudioSource Sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,8 @@ public class Slash : MonoBehaviour
             //yield return new WaitForSeconds(2);
             Instantiate(Particles, col.gameObject.transform.position, Quaternion.identity); ;
             Destroy(col.gameObject);
+            Sound = GetComponent<AudioSource>();
+            Sound.Play(0);
 
         }
 
